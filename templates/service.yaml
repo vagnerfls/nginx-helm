@@ -6,8 +6,8 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.application.user-port }}
-      targetPort: {{ .Values.application.container-port}}
+    - port: {{ .Values.application.userPort }}
+      targetPort: {{ .Values.application.containerPort}}
       protocol: TCP
       name: http
   selector:

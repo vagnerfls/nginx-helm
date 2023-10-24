@@ -1,8 +1,8 @@
 application:
   replicas: 1
   image: nginx
-  container-port: 80
-  user-port: 7800
+  containerPort: 80
+  userPort: 7800
   ingress:
     enabled: true
   service:
