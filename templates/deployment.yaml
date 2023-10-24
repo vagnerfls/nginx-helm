@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release }}-deploy
-  namespace: {{ .Release}}    
+  name: {{ .Release.Name }}-deploy
+  namespace: nginx-helm
   labels:
-    app: {{ .Release }}
+    app: {{ .Release.Name }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Release }}
+      app: {{ .Release.Name }}
   replicas: {{ default 1 .Values.replicas | int }}
   template:
     metadata:
       labels:
-        app: {{ .Release }}
+        app: {{ .Release.Name }}
     spec:
       containers:
-      - name: {{ .Release }}
+      - name: {{ .Release.Name }}
         image: "{{ .Values.application.image }}"
         ports:
         - containerPort: {{ .Values.application.containerPort | int }}      

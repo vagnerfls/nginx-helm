@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release}}-svc
-  namespace: {{ .Release}}    
+  name: {{ .Release.Name}}-svc
+  namespace: {{ .Release.Name}}    
 spec:
   type: {{ .Values.application.service.type }}
   ports:
@@ -11,4 +11,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ .Release }}
+    app: {{ .Release.Name }}
