@@ -2,17 +2,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name}}
-  namespace: nginx-helm
+  annotations:
+       nginx.ingress.kubernetes.io/rewrite-target: /
   labels:
     app.kubernetes.io/instance: nginx
+  name: nginx-ingress
+  namespace: nginx-helm
+
 spec:
+  ingressClassName: nginx
   rules:
-    - host: {{ .Release.Name }}.localhost
+    - host: s1.localhost
       http:
         paths:
-          - path: /
-            backend:
-              serviceName: {{ .Release.Name }}-svc
-              servicePort: {{ .Values.application.userPort }}
-{{- end -}}
+          - backend:
+              service:
+                name: {{ .Release.Name }}-svc
+                port:
+                  number: {{ .Values.application.userPort}}
+            path: /
+            pathType: Prefix
