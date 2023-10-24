@@ -19,5 +19,4 @@ spec:
       - name: {{ .Release }}
         image: "{{ .Values.application.image }}"
         ports:
-        - containerPort: {{ .Values.application.containerPort | int }}
-      
+        - containerPort: {{ .Values.application.containerPort | int }}      
