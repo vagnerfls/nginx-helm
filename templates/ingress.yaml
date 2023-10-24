@@ -1,0 +1,18 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Release}}
+  namespace: {{ .Release}}  
+  labels:
+    app: {{ .Release}}
+spec:
+  rules:
+    - host: {{ .Release }}.localhost
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ .Release }}-svc
+              servicePort: {{ .Values.application.user-port }}
+{{- end -}}

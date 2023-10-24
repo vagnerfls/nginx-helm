@@ -1,0 +1,7 @@
+application:
+  replicas: 1
+  image: nginx
+  container-port: 80
+  user-port: 7800
+  ingress:
+    enabled: true
