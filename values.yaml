@@ -5,3 +5,5 @@ application:
   user-port: 7800
   ingress:
     enabled: true
+  service:
+    type: ClusterIP
