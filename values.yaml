@@ -7,3 +7,5 @@ application:
     enabled: true
   service:
     type: ClusterIP
+  namespace:
+    name: nginx-helm
