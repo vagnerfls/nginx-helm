@@ -14,5 +14,5 @@ spec:
           - path: /
             backend:
               serviceName: {{ .Release }}-svc
-              servicePort: {{ .Values.application.user-port }}
+              servicePort: {{ .Values.application.userPort }}
 {{- end -}}
