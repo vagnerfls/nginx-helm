@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Release.Name}}
-  namespace: {{ .Release.Name}} 
+  namespace: nginx-helm
   labels:
     app: {{ .Release.Name}}
 spec:
