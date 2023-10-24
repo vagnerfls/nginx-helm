@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release}}-svc
   namespace: {{ .Release}}    
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.application.service.type }}
   ports:
     - port: {{ .Values.application.userPort }}
       targetPort: {{ .Values.application.containerPort}}
