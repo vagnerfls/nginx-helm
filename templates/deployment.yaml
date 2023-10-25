@@ -19,4 +19,13 @@ spec:
       - name: {{ .Release.Name }}
         image: "{{ .Values.application.image }}"
         ports:
-        - containerPort: {{ .Values.application.containerPort | int }}      
+        - containerPort: {{ .Values.application.containerPort | int }}     
+        volumeMounts:
+          - name: site
+            mountPath: /usr/share/nginx/html
+            subPath: index.html
+
+      volumes:
+        - name: site
+          ConfigMap:
+            name: {{ .Release.Name}}-cm
