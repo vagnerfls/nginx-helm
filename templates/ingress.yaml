@@ -1,8 +1,7 @@
-{{if .Values.application.ingress.enabled}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{.Release.Name}}-ingress
+  name: nginx-helm-ingress
   namespace: nginx-helm
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -11,14 +10,13 @@ spec:
   ingressClassName: nginx
 
   rules:
-    - host: {{.Release.Name}}.localhost
+    - host: nginx-helm.localhost
       http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
-                name: {{.Release.Name}}-svc
+                name: nginx-helm-svc
                 port:
-                  number: {{ .Values.application.userPort}}
-{{end}}
+                  number: 7800
