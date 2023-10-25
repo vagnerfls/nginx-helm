@@ -1,8 +1,9 @@
+{{if .Values.application.ingress.enabled}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-helm-ingress
-  namespace: nginx-helm
+  name: {{ .Release.Name}}-ingress
+  namespace: {{ .Release.Name}}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 
@@ -16,6 +17,7 @@ spec:
             path: /
             backend:
               service:
-                name: nginx-helm-svc
+                name: {{ .Release.Name}}-svc
                 port:
                   number: {{ .Values.application.userPort}}
+{{end}}
