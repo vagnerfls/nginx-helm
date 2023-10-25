@@ -6,7 +6,7 @@ application:
   ingress:
     enabled: true
   service:
-    type: LoadBalancer
+    type: ClusterIP
   namespace:
     name: nginx-helm
     
