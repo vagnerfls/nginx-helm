@@ -7,8 +7,6 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 
 spec:
-  ingressClassName: nginx-helm
-
   rules:
     - host: nginx-helm.localhost
       http:
