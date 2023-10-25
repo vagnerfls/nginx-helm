@@ -23,8 +23,9 @@ spec:
         volumeMounts:
           - name: site
             mountPath: /usr/share/nginx/html/index.html
+            subPath: index.html
 
       volumes:
         - name: site
-          ConfigMap:
+          configMap:
             name: {{ .Release.Name}}-cm
