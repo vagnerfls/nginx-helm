@@ -18,4 +18,4 @@ spec:
               service:
                 name: nginx-helm-svc
                 port:
-                  number: 7800
+                  number: {{ .Values.application.userPort}}
