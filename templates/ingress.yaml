@@ -6,7 +6,7 @@ metadata:
   namespace: nginx-helm
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    
+
 spec:
   ingressClassName: nginx
 
@@ -15,7 +15,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: "/"
+            path: /
             backend:
               service:
                 name: {{.Release.Name}}-svc
