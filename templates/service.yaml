@@ -9,6 +9,6 @@ spec:
     - port: {{ .Values.application.userPort }}
       targetPort: {{ .Values.application.containerPort}}
       protocol: TCP
-      name: http
+
   selector:
     app: {{ .Release.Name }}
