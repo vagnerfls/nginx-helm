@@ -9,5 +9,4 @@ application:
     type: ClusterIP
   namespace:
     name: nginx-helm
-  index: |
-    <h1> Meu primeiro site tendo o deploying com o Helm e gerenciado pelo ArgoCD</h1>
+    
