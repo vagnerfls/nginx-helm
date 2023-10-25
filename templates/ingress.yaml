@@ -4,6 +4,9 @@ kind: Ingress
 metadata:
   name: {{.Release.Name}}-ingress
   namespace: nginx-helm
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    
 spec:
   ingressClassName: nginx
 
